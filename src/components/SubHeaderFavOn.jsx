@@ -6,11 +6,11 @@ export default function SubHeaderFavOn(props) {
   const { setFavListOn } = props;
 
   return (
-    <SubHeaderOn>
+    <SubHeaderOn data-testid="subheader">
       <h3>Favorite Articles</h3>
       <div>
         <button type="button" onClick={() => setFavListOn(false)}>
-          Search
+          Search Mode
         </button>
       </div>
     </SubHeaderOn>

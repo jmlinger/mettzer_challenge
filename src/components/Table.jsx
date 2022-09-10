@@ -19,7 +19,7 @@ export default function Table(props) {
   } = props;
   const [favListOn, setFavListOn] = useState(false);
   const [favList, setFavList] = useState(
-    localStorage.getItem('favList') !== undefined ? JSON.parse(localStorage.getItem('favList')) : []
+    !localStorage.getItem('favList') ? [] : JSON.parse(localStorage.getItem('favList'))
   );
 
   const handleFavList = (article) => {
@@ -74,15 +74,15 @@ export default function Table(props) {
       center: true,
       width: '10vw',
       cell: (row) => (
-        <FavBtn type="button" onClick={() => handleFavList(row)}>
-          {favList !== [] ? (
+        <FavBtn type="button" data-testid="fav-icon-button" onClick={() => handleFavList(row)}>
+          {favList.length > 0 ? (
             favList.some((fav) => row['_id'] === fav['_id']) ? (
-              <FavOnIcon />
+              <FavOnIcon data-testid="fav-icon" />
             ) : (
-              <FavOffIcon />
+              <FavOffIcon data-testid="fav-icon" />
             )
           ) : (
-            <FavOffIcon />
+            <FavOffIcon data-testid="fav-icon" />
           )}
         </FavBtn>
       )
@@ -95,6 +95,11 @@ export default function Table(props) {
       center: true,
       wrap: true,
       width: '15vw',
+      sortFunction: (rowA, rowB) =>
+        sortCaseAccentInsensitive(
+          rowA['_source'].authors.toString(),
+          rowB['_source'].authors.toString()
+        ),
       format: (row) =>
         row['_source'].authors
           ? row['_source'].authors.toString().length >= 100
@@ -118,6 +123,8 @@ export default function Table(props) {
       center: true,
       wrap: true,
       width: '15vw',
+      sortFunction: (rowA, rowB) =>
+        sortCaseAccentInsensitive(rowA['_source'].title, rowB['_source'].title),
       format: (row) =>
         row['_source'].title
           ? row['_source'].title.toString().length >= 150
@@ -209,6 +216,7 @@ export default function Table(props) {
               getArticles={getArticles}
               search={search}
               setSearch={setSearch}
+              articles={articles}
             />
           ) : (
             <SubHeaderFavOn setFavListOn={setFavListOn} />
