@@ -113,7 +113,7 @@ describe('Units test main page.', () => {
         const pagination = screen.getByRole('navigation');
 
         expect(tableHeader).toHaveClass('sc-fEOsli fuRmuE rdt_TableHeader');
-        expect(subHeader).toHaveClass('sc-cCsOjp sc-ciZhAO dhbTLO dtBSte');
+        expect(subHeader).toHaveClass('sc-cCsOjp sc-ciZhAO dhbTLO gqDQAr');
         expect(tableHead).toHaveClass('sc-gsnTZi TpgDh rdt_TableHead');
         expect(tableBody).toHaveClass('sc-hHLeRK gFYXSL rdt_TableBody');
         expect(pagination).toHaveClass('sc-iIPllB yqZZN rdt_Pagination');
@@ -302,6 +302,8 @@ describe('Units test main page.', () => {
 
         userEvent.type(searchInput, 'natalia');
         userEvent.click(submitButton);
+
+        await new Promise((r) => setTimeout(r, 3000));
 
         const favIconBtn1 = screen.getAllByTestId('fav-icon-button')[0];
         const favIconBtn2 = screen.getAllByTestId('fav-icon-button')[1];
