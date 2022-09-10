@@ -60,7 +60,6 @@ $ npm start
 
 <div align=right>
 	<h4>V 1.00</h4>
-
 </div>
 
 Tela Principal (/):
@@ -73,8 +72,31 @@ Tela Principal (/):
 - [x] Altera ordenção de colunas ao clicar no cabeçalho.
 - [x] Rodapé com gerenciamento de paginação.
 
+<br>
+
 ## Cobertura de testes
-Cobertura geral: 
+
+Cobertura geral: 75%
 <div align="left">
-	<img src="/images/cobertura_testes_front.jpg" align="center" width="500px" height="300px"/>
+	<img src="src/images/cobertura_testes.png" align="center" width="500px" height="300px"/>
 </div>
+
+<br>
+
+Instruções para rodar testes
+```bash
+# Para executar os testes 
+$ npm run test
+
+# Para verificar a cobertura dos testes 
+$ npm run test-coverage
+```
+
+<br>
+
+## Status
+
+<h3> 
+	🚧  Projeto finalizado 🚧
+</h3>
+
