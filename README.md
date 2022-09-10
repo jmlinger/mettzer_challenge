@@ -78,7 +78,7 @@ Tela Principal (/):
 
 Cobertura geral: 75%
 <div align="left">
-	<img src="/images/cobertura_testes.png" align="center" width="500px" height="300px"/>
+	<img src="src/images/cobertura_testes.png" align="center" width="500px" height="300px"/>
 </div>
 
 <br>
