@@ -8,8 +8,6 @@ export const apiCustList = async (search, page = 1, perPage) => {
 
     const fetchApi = await axios.get(url);
     const response = await fetchApi.data;
-    console.log(search, page, perPage);
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

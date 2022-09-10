@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { SubHeaderOff } from '../styles/pages/table';
 
 export default function SubHeaderFavOff(props) {
-  const { setFavListOn, getArticles, search, setSearch } = props;
+  const { setFavListOn, getArticles, search, setSearch, articles } = props;
 
   const handleSearchBar = ({ target: { name, value } }) => {
     setSearch({ ...search, [name]: value });
@@ -12,14 +12,13 @@ export default function SubHeaderFavOff(props) {
   const submitSearch = () => {
     return getArticles();
   };
-  console.log(search);
 
   return (
-    <SubHeaderOff>
+    <SubHeaderOff data-testid="subheader">
       <h3>Search for Articles</h3>
       <div>
         <button type="button" onClick={() => setFavListOn(true)}>
-          Favorites
+          Favorite Mode
         </button>
         <label>
           Search:
@@ -29,6 +28,9 @@ export default function SubHeaderFavOff(props) {
           </button>
         </label>
       </div>
+      <section>
+        <p hidden={!articles.totalHits}>Total Matchs: {articles.totalHits}</p>
+      </section>
     </SubHeaderOff>
   );
 }
@@ -37,5 +39,6 @@ SubHeaderFavOff.propTypes = {
   setFavListOn: PropTypes.object,
   getArticles: PropTypes.func,
   search: PropTypes.object,
-  setSearch: PropTypes.object
+  setSearch: PropTypes.object,
+  articles: PropTypes.object
 }.isRequired;

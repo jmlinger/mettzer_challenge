@@ -13,8 +13,6 @@ export default function Main() {
   const [totalRows, setTotalRows] = useState(0);
   const [perPage, setPerPage] = useState(10);
 
-  console.log('renderizou');
-
   const getArticles = async (page) => {
     setLoading(true);
 

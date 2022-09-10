@@ -21,6 +21,14 @@ const SubHeader = styled.div`
 `;
 
 export const SubHeaderOff = styled(SubHeader)`
+  section {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    p {
+      margin-right: 1em;
+    }
+  }
   div {
     align-content: center;
     align-items: center;
@@ -28,7 +36,6 @@ export const SubHeaderOff = styled(SubHeader)`
     justify-content: space-between;
     width: 100%;
   }
-
   button:first-child {
     background-color: gold;
   }
